@@ -37,9 +37,8 @@ module.exports = function(options) {
     hook.data.userId = user._id;
 
     // Set up the set of cards and shuffle them
-    const symbols = shuffle('✿★♦✵♣♠♥⚛'.repeat(2).split(''))
-    hook.data.cards = symbols
-      .map((symbol) => ({ flipped: false, symbol: symbol }))
+    const words = ['book', 'table', 'chair']
+    hook.data.words = words
 
     // Add the logged in user as the first player
     hook.data.players = [{

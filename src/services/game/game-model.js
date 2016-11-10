@@ -8,21 +8,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const cardSchema = new Schema({
-  symbol: { type: String, required: true },
-  flipped: { type: Boolean, required: true, 'default': false },
+const drawingPointsSchema = new Schema({
+  pointX: { type: Array },
+  pointY: { type: Array },
 });
 
 const playerSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: 'user' },
   color: { type: String, required: false },
   name: { type: String, required: true },
-  pairs: [String]
 });
 
 const gameSchema = new Schema({
-  cards: [cardSchema],
+  drawingPoints: [drawingPointsSchema],
   players: [playerSchema],
+  word: { type: String, 'default': null },
   started: { type: Boolean, required: true, 'default': false },
   winner: { type: Number, required: false },
   turn: { type: Number, required: true, 'default': 0 },

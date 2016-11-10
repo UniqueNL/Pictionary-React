@@ -13,13 +13,6 @@ import './Game.sass'
 const PLAYER_COLORS = ['#018ae1', '#f8da27', '#b912de']
 
 class Game extends Component {
-  constructor() {
-    super()
-    this.state = {
-      word: null
-    }
-  }
-
   componentWillMount() {
     this.props.setGameId(this.props.routeParams.gameId)
     this.props.setUpGames()
@@ -86,18 +79,18 @@ class Game extends Component {
         Current players:
           <ul>
             { game.players.map((player) => {
-              return <li>{player.name}{player.points}
+              return <li key={player._id}>{player.name}
               <i>:</i>
               </li>
             }) }
           </ul>
         </div>
-        <Canvas />
+        <Canvas game={game}/>
         <div>
           { console.log()}
           <form onSubmit={this.checkWord.bind(this)}>
             <input type="text" ref="guessWord" className="inputWord"></input>
-            <input type="button" ref="generateWord" onClick={this.generateWord.bind(this)}></input>
+            <input type="button" ref="generateWord" value='Generate word testing' onClick={this.generateWord.bind(this)}></input>
             <div>
               <em>Insert a word and press ENTER to submit.</em>
             </div>

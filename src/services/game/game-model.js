@@ -9,8 +9,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const drawingPointsSchema = new Schema({
-  pointX: { type: Array },
-  pointY: { type: Array },
+  pointX: { type: Number },
+  pointY: { type: Number },
 });
 
 const playerSchema = new Schema({
